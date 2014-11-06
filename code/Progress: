@@ -1,0 +1,15 @@
+Progress:
+
+
+Baseline:
+	.050, .007, 2.7x10^-4
+
+Changing sents to sentences 1,2 and -1 of par:
+	.066, .012, 4.5x10^-4
+
+All lower case:
+	.077, .0148, 9.4x10^-4
+
+Only using sents in the top three quartiles of score:
+	.078, .015, .0012
+	
