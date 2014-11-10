@@ -5,7 +5,8 @@ import sys
 import string
 from nltk.corpus import stopwords
 from collections import Counter
-
+from nltk.stem.wordnet import WordNetLemmatizer
+import nltk
 # This program reads in the query, 
 # scores and ranks the sentences, and
 # prints out a summary using that ranking.
@@ -26,7 +27,7 @@ from collections import Counter
 # many words they share with the query.
 
 stops = set(stopwords.words("english"))
-
+stemmer = WordNetLemmatizer()
 # First step: normalizing the query
 
 # ****NOTE****
@@ -39,8 +40,8 @@ query = query.rstrip("\n")                  # remove EOL
 query = re.sub(r'-', ' ', query)            # replace - with space
 query = query.translate(string.maketrans("",""), string.punctuation) # remove punct
 query = re.sub(r'^\d\d\d ', '', query)      # remove the topic ID 
-qwords = [w for w in query.split() if not w in stops] # remove stop words
-
+qwords = [w for w in nltk.word_tokenize(query) if not w in stops] # remove stop words
+# qwords = [stemmer.lemmatize(w) for w in qwords]
 # Second step: build list of candidate sentences
 sentlist = []
 indexfile = open(sys.argv[2])
@@ -66,6 +67,8 @@ for s in sentlist:
 # added to the list of sentences sharing at least one
 # word with the query.
 rankedsents = newsentlist
+
+#do somekind of cosine distance here
 
 
 # This is a fancy way of taking a list, counting how many

@@ -13,3 +13,12 @@ All lower case:
 Only using sents in the top three quartiles of score:
 	.078, .015, .0012
 	
+Stem words using porter stemmer:
+	Decrease, may put back later
+	.074, .0149.0010
+
+Lemmatizer:
+	Worse than porter stemmer
+
+Smart Tokenization:
+	.0787, .0156, .0012

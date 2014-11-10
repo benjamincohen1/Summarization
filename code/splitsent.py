@@ -60,6 +60,8 @@ for file in files:
     doc = open(file)
     filename = re.sub(r'^.*\/(.*?)$', r'\1', file) 
     score = float('0.' + filename.split('.')[2])
+
+    
     if score > cutoff:
         # For every line in the file,
         # split on . and then print out

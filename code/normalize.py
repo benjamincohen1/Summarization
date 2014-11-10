@@ -4,6 +4,8 @@ import re
 import sys
 import string
 from nltk.corpus import stopwords
+from nltk.stem.wordnet import WordNetLemmatizer
+import nltk
 
 # This program normalizes the file of sentences
 # extracted from the set of documents.
@@ -26,6 +28,7 @@ from nltk.corpus import stopwords
 #   lemmatization
 #   throwing out sentences with garbage
 # Rememeber that NLTK can do a lot of this for you!  
+stemmer = WordNetLemmatizer()
 
 stops = set(stopwords.words("english"))
 
@@ -38,8 +41,9 @@ for line in sents:
     sent = sent.lower()
     sent = re.sub(r'-', ' ', sent)  # replace hyphen with space
     out = sent.translate(string.maketrans("",""), string.punctuation) # remove punctuation 
-    outwords = out.split()
+    outwords = nltk.word_tokenize(out)
     outwords_nostops = [w for w in outwords if not w in stops] # remove stop words
+    # outwords_nostops = [stemmer.lemmatize(w) for w in outwords_nostops]
     out = " ".join(outwords_nostops)
     print(parts[0] + "\t" + parts[1] + "\t" + out)
 sents.close()
