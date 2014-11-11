@@ -37,3 +37,7 @@ Selection changes (quartiles 2,3,4 of mentions in text) and removal of (\d+) fro
 
 Lemmatizer back:
  	.089, .018, .00265
+
+Fixed sentences printing twice, and removed acknowledgements:
+	.112, .034, .012
+	
