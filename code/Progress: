@@ -31,3 +31,7 @@ getting rid of ACKNOWLEGMENTS and REFERENCES
 
 Replace symbols with SYMB:
 	No change :(
+
+Selection changes (quartiles 2,3,4 of mentions in text) and removal of (\d+) from summary:
+	.086, .017, .0026
+	

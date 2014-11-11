@@ -70,13 +70,15 @@ for file in files:
         for line in doc:
             line = line.rstrip('\n')
             sents = line.split("\t")
+            # print sents[-1]
+
             for s in sents:
                 for se in s.split('.')[:2]:
                     if (len(se) > 30):
                         print(filename + "\t" + str(counter) + "\t" + s + ".")
                         counter += 1
-                for se in s.split('.')[-1]:
-                    if (len(se) > 30):
-                        print(filename + "\t" + str(counter) + "\t" + s + ".")
-                        counter += 1
+                # for se in s.split('.')[-1]:
+                #     if (len(se) > 30):
+                #         print(filename + "\t" + str(counter) + "\t" + s + ".")
+                #         counter += 1
     doc.close()

@@ -38,9 +38,10 @@ for line in sents:
     line = line.rstrip("\n")
     parts = line.split("\t")
     sent = parts[-1]
-    sent = re.sub('[a-zA-Z]+[0-9]+[a-zA-Z]*','SYMB',sent)
+    # sent = re.sub('[a-zA-Z]+[0-9]+[a-zA-Z]*','SYMB',sent)
     sent = sent.lower()
     sent = re.sub('[0-9]+', 'num', sent)
+    # sent = re.sub('\(\d+\)', '', sent)
     sent = re.sub(r'-', ' ', sent)  # replace hyphen with space
     out = sent.translate(string.maketrans("",""), string.punctuation) # remove punctuation 
     outwords = nltk.word_tokenize(out)
