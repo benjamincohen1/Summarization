@@ -34,4 +34,6 @@ Replace symbols with SYMB:
 
 Selection changes (quartiles 2,3,4 of mentions in text) and removal of (\d+) from summary:
 	.086, .017, .0026
-	
+
+Lemmatizer back:
+ 	.089, .018, .00265

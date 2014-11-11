@@ -46,7 +46,7 @@ for line in sents:
     out = sent.translate(string.maketrans("",""), string.punctuation) # remove punctuation 
     outwords = nltk.word_tokenize(out)
     outwords_nostops = [w for w in outwords if not w in stops] # remove stop words
-    # outwords_nostops = [stemmer.lemmatize(w) for w in outwords_nostops]
+    outwords_nostops = [stemmer.lemmatize(w) for w in outwords_nostops]
     out = " ".join(outwords_nostops)
     print(parts[0] + "\t" + parts[1] + "\t" + out)
 sents.close()

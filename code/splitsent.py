@@ -63,22 +63,29 @@ for file in files:
 
     
     if score > cutoff:
-        # For every line in the file,
-        # split on . and then print out
-        # any sentence you create that is
-        # > 30 chars long.
         for line in doc:
-            line = line.rstrip('\n')
+            # if "\n" in line:
+            #     print line
+            # print line
+            # print 'docs'
+            # print "\n\n\n"
+
+            line = line.strip('\n')
             sents = line.split("\t")
             # print sents[-1]
-
             for s in sents:
-                for se in s.split('.')[:2]:
+                if 'acknowledgement' in s.lower() or 'references' in s.lower():
+                    break
+                # print s.split('.')[0]
+                # print '\n\n\n'
+                for se in s.split('.')[:]:
+                    # if "\n" in se:
+                    #     print s
                     if (len(se) > 30):
-                        print(filename + "\t" + str(counter) + "\t" + s + ".")
+                        print(filename + "\t" + str(counter) + "\t" + se + '.')
                         counter += 1
                 # for se in s.split('.')[-1]:
                 #     if (len(se) > 30):
-                #         print(filename + "\t" + str(counter) + "\t" + s + ".")
+                #         print(filename + "\t" + str(counter) + "\t" + se + '.')
                 #         counter += 1
     doc.close()

@@ -45,7 +45,7 @@ query = re.sub(r'-', ' ', query)            # replace - with space
 query = query.translate(string.maketrans("",""), string.punctuation) # remove punct
 query = re.sub(r'^\d\d\d ', '', query)      # remove the topic ID 
 qwords = [w for w in nltk.word_tokenize(query) if not w in stops] # remove stop words
-# qwords = [stemmer.lemmatize(w) for w in qwords]
+qwords = [stemmer.lemmatize(w) for w in qwords]
 # Second step: build list of candidate sentences
 sentlist = []
 indexfile = open(sys.argv[2])
@@ -61,7 +61,7 @@ for line in indexfile:
 # sentlist = [f for f in sentlist if int(f.split(':')[1]) > 3 and int(f.split(':')[1]) < 6]
 sentlist = sorted(sentlist, key = lambda x: int(x.split(':')[1]), reverse=True)
 
-l = len(sentlist)//5
+l = len(sentlist)//4
 sentlist = sentlist[l:len(sentlist)-l]
 # import random
 # random.shuffle(sentlist)
