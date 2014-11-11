@@ -22,3 +22,12 @@ Lemmatizer:
 
 Smart Tokenization:
 	.0787, .0156, .0012
+
+replacing numbers with 'num'
+	.0826, .0158, .0014
+
+getting rid of ACKNOWLEGMENTS and REFERENCES
+	worse than before, but i may have implemented it wrong 
+
+Replace symbols with SYMB:
+	No change :(

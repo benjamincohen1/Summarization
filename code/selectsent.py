@@ -35,9 +35,11 @@ stemmer = WordNetLemmatizer()
 # here as you did in normalize.py!!!
 
 query = open(sys.argv[1]).read()
+query = re.sub('[a-zA-Z]+[0-9]+[a-zA-Z]*','SYMB',query)
 query = query.lower()
 query = query.rstrip("\n")                  # remove EOL
 query = re.sub(r'-', ' ', query)            # replace - with space
+query = re.sub('[0-9]+', 'num', query)
 query = query.translate(string.maketrans("",""), string.punctuation) # remove punct
 query = re.sub(r'^\d\d\d ', '', query)      # remove the topic ID 
 qwords = [w for w in nltk.word_tokenize(query) if not w in stops] # remove stop words
