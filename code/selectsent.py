@@ -90,8 +90,6 @@ rankedsents = newsentlist
 # for s in rankedsents:
 #     print sents[int(s)]
 
-#do somekind of cosine distance here
-
 
 # This is a fancy way of taking a list, counting how many
 # times each item appears in that list, and then sorting
@@ -107,7 +105,8 @@ for rs in rankedsents:
     sentid = rs[0]
     bits = sents[int(sentid)].split("\t") 
     bits[-1] = re.sub('\(\d+\)', '', bits[-1])
-    print(bits[-1] + " "),
+    # bits[-1] = re.sub(' \.', '.', bits[-1])
+    print(bits[-1] + ""),
     wordcount =+ wordcount + len(bits[-1].split())
     if (wordcount > 250):
         break

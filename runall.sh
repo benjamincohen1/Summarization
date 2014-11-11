@@ -6,30 +6,30 @@
 # writes the sentences, one per line, to a
 # new file called sents.txt.
 
-ls -d $PWD/docs/* | while read i; do
-    echo $i;
-   python code/splitsent.py $i > $i/sents.txt
-done
+# ls -d $PWD/docs/* | while read i; do
+#     echo $i;
+#    python code/splitsent.py $i > $i/sents.txt
+# done
 
 # Step 2: Normalize sentences
 # This normalizes the text of each sentence
 # in each sents.txt file and writes
 # the output to a new file, sents.txt.norm.
 
-ls docs/*/sents.txt | while read i; do
-    echo $i
-    python code/normalize.py $i > $i.norm
-done
+# ls docs/*/sents.txt | while read i; do
+#     echo $i
+#     python code/normalize.py $i > $i.norm
+# done
 
 # Step 3: Build index
 # This builds an index of sents.txt.norm.
 
-ls docs/*/*norm | while read i; do
-    echo $i;
-    newi=`echo $i | sed 's/sents.txt.norm/index.txt/g'`
-    echo $newi
-    python code/buildindex.py $i > $newi
-done
+# ls docs/*/*norm | while read i; do
+#     echo $i;
+#     newi=`echo $i | sed 's/sents.txt.norm/index.txt/g'`
+#     echo $newi
+#     python code/buildindex.py $i > $newi
+# done
 
 
 # Step 4: Generate the summaries
